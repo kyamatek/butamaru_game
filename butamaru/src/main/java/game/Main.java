@@ -25,20 +25,8 @@ public class Main
         Pig pigRiver = new Pig(pigRiverName,hitPointR,attackR,defenseR,speedR+1);
 
         //戦闘
-        while(pigRiver.hitPoint > 0 && pigMountain.hitPoint > 0){
-          if(pigRiver.speed>pigMountain.speed){
-            pigRiver.attack(pigMountain);
-            if(pigMountain.hitPoint>0){
-              pigMountain.attack(pigRiver);
-            }
-          }
-          else{
-            pigMountain.attack(pigRiver);
-            if(pigRiver.hitPoint>0){
-              pigRiver.attack(pigMountain);
-            }
-          }
-        }
+        Battle battle = new Battle(pigRiver, pigMountain);
+        battle.attack();
 
         //勝者判定＆ゲーム終了
         if(pigRiver.hitPoint<=0){
