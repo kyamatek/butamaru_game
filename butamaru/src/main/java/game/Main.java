@@ -25,15 +25,15 @@ public class Main
         Pig pigRiver = new Pig(pigRiverName,hitPointR,attackR,defenseR,speedR+1);
 
         //戦闘
-        while(pigRiverName > 0 && pigMountain > 0){
+        while(pigRiver.hitPoint > 0 && pigMountain.hitPoint > 0){
           if(pigRiver.speed>pigMountain.speed){
             pigRiver.attack(pigMountain);
             if(pigMountain.hitPoint>0){
-              pigMountain.sttack(pigRiver);
+              pigMountain.attack(pigRiver);
             }
           }
           else{
-            pigMountain.sttack(pigRiver);
+            pigMountain.attack(pigRiver);
             if(pigRiver.hitPoint>0){
               pigRiver.attack(pigMountain);
             }
@@ -42,10 +42,10 @@ public class Main
 
         //勝者判定＆ゲーム終了
         if(pigRiver.hitPoint<=0){
-          System.out.println( "{0}の勝利！",pigRiver.name );
+          System.out.println("やまぶたの勝利");
         }
         else{
-          System.out.println( "{0}の勝利！",pigMountain.name );
+          System.out.println( "イベリコ豚の勝利！");
         }
     }
 }
